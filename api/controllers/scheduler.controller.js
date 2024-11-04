@@ -3,7 +3,7 @@ import { Event } from "../models/Event.model.js";
 // Add Event
 export const addEvent = async (req, res) => {
   //   console.log(req.body);
-  const { start_time, end_time } = req.body;
+  const { name, start_time, end_time } = req.body;
 
   try {
     const overlappingEvent = await Event.findOne({
@@ -22,7 +22,12 @@ export const addEvent = async (req, res) => {
     }
 
     // Create and save the new event
-    const event = new Event({ start_time, end_time, status: "scheduled" });
+    const event = new Event({
+      name,
+      start_time,
+      end_time,
+      status: "scheduled",
+    });
     await event.save();
     res.status(201).json({ success: true, event });
   } catch (error) {

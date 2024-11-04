@@ -1,0 +1,33 @@
+<div class="scheduler-form">
+    <h2>Schedule an Event</h2>
+    <form [formGroup]="eventForm" (ngSubmit)="scheduleEvent()">
+        <label for="name">Event Name
+            <input type="text" id="name" formControlName="name" required />
+            <div *ngIf="eventForm.controls['name'].invalid && eventForm.controls['name'].touched" class="error">
+                Event name is required.
+            </div>
+        </label>
+
+        <label for="start">Start Time
+            <input type="number" id="start" formControlName="start_time" min="0" max="23" required />
+            <div *ngIf="eventForm.controls['start_time'].invalid && eventForm.controls['start_time'].touched" class="error">
+                Start time must be between 0 and 23.
+            </div>
+        </label>
+
+        <label for="end">End Time
+            <input type="number" id="end" formControlName="end_time" min="0" max="23" required />
+            <div *ngIf="eventForm.controls['end_time'].invalid && eventForm.controls['end_time'].touched" class="error">
+                End time must be between 0 and 23.
+            </div>
+        </label>
+
+        <!-- Custom Validator Error -->
+        <div *ngIf="eventForm.errors?.['timeMismatch']" class="error" style="width: 100%;">
+            End time must be greater than start time.
+        </div>
+
+        <button type="submit">Schedule Event</button>
+    </form>
+    <div class="info">{{message}}</div>
+</div>

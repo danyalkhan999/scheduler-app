@@ -1,0 +1,118 @@
+/* Scheduler Form Container */
+.scheduler-form {
+    width: 90%;
+    max-width: 800px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+/* Form Title */
+.scheduler-form h2 {
+    color: #333;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+/* Horizontal form layout */
+.scheduler-form form {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+/* Label and Input Styles */
+.scheduler-form label {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.9em;
+    color: #666;
+}
+
+/* Make Event Name Input Larger */
+.scheduler-form input[type="text"] {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+    width: 250px;
+    /* Larger width for Event Name */
+    transition: border-color 0.3s ease;
+}
+
+/* Smaller Width for Start and End Time */
+.scheduler-form input[type="number"] {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+    width: 100px;
+    /* Smaller width for time inputs */
+    transition: border-color 0.3s ease;
+}
+
+.scheduler-form input[type="text"]:focus,
+.scheduler-form input[type="number"]:focus {
+    border-color: #3b82f6;
+    outline: none;
+}
+
+/* Submit Button Style */
+.scheduler-form button {
+    padding: 10px 16px;
+    background-color: #3b82f6;
+    color: #fff;
+    font-size: 1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: auto;
+}
+
+.scheduler-form button:hover {
+    background-color: #2563eb;
+}
+
+/* Error Message Styling */
+.error {
+    color: #e63946;
+    font-size: 0.85em;
+    margin-top: 4px;
+    width: 100%;
+    display: block;
+}
+
+/* Info Message Styling */
+.info {
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #888;
+    text-align: center;
+}
+
+/* Responsive Layout */
+@media (max-width: 600px) {
+    .scheduler-form form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .scheduler-form button {
+        width: 100%;
+    }
+
+    .scheduler-form input[type="text"],
+    .scheduler-form input[type="number"] {
+        width: 100%;
+    }
+}

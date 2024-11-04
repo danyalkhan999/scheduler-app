@@ -1,0 +1,9 @@
+<div class="event-list">
+    <h2>All Events</h2>
+    <app-eventitem
+      *ngFor="let event of events"
+      [event]="event"
+      (statusChange)="updateEventStatus(event, $event)"
+    ></app-eventitem>
+  </div>
+  

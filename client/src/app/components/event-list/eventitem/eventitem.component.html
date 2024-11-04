@@ -1,0 +1,15 @@
+<div class="event-item" [ngStyle]="{ 'background-color': getStatusColor() }">
+    <h3>{{ event.name }}</h3>
+    <p>Time: {{ event.start_time }} - {{ event.end_time }}</p>
+  
+    <div *ngIf="event.status === 'scheduled'">
+      <button (click)="changeStatus('completed')">Mark as Completed</button>
+      <button (click)="changeStatus('cancelled')">Mark as Cancelled</button>
+    </div>
+    <div *ngIf="event.status === 'completed'">
+      <span>Completed</span>
+    </div>
+    <div *ngIf="event.status === 'cancelled'">
+      <span>Cancelled</span>
+    </div>
+  </div>
